@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de CPF Válido</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔢 Gerador de CPF Válido</h1>
+        
+        <div class="cpf-display">
+            <div id="cpfGerado">000.000.000-00</div>
+        </div>
+
+        <div class="buttons">
+            <button onclick="gerarCPF()">🔄 Gerar Novo CPF</button>
+            <button class="secondary" onclick="copiarCPF()">📋 Copiar CPF</button>
+            <button class="secondary" onclick="testarComValidadoresExternos()">🔍 Testar Validador</button>
+        </div>
+
+        <div id="validationStatus" class="validation-status"></div>
+
+        <div class="info-box">
+            <h3>📌 Critérios de Validação do CPF:</h3>
+            <ul>
+                <li><strong>Formato:</strong> 11 dígitos (XXX.XXX.XXX-XX)</li>
+                <li><strong>Não pode ter todos os dígitos iguais</strong> (ex: 111.111.111-11)</li>
+                <li><strong>1º Dígito Verificador:</strong> Calculado com pesos 10 a 2 nos primeiros 9 dígitos</li>
+                <li><strong>2º Dígito Verificador:</strong> Calculado com pesos 11 a 2 nos primeiros 10 dígitos</li>
+                <li><strong>Fórmula:</strong> Soma dos produtos, resto por 11 (se resto < 2 → 0, senão → 11 - resto)</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>⚡ CPFs gerados seguem as regras oficiais da Receita Federal</p>
+            <p>Teste em qualquer validador online!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
